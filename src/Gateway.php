@@ -25,7 +25,6 @@ class Gateway extends AbstractGateway
             'merchantURL' => '',
             'merchantName' => '',
             'transactionType' => '0',
-            'signatureMode' => 'simple',
             'testMode' => false
         );
     }
@@ -54,11 +53,6 @@ class Gateway extends AbstractGateway
     public function setTerminal($terminal)
     {
         $this->setParameter('terminal', $terminal);
-    }
-
-    public function setSignatureMode($signatureMode)
-    {
-        $this->setParameter('signatureMode', $signatureMode);
     }
 
     public function setConsumerLanguage($consumerLanguage)

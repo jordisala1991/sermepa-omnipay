@@ -14,7 +14,7 @@ Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply
 ```json
 {
     "require": {
-        "nazka/sermepa-omnipay": "dev-master"
+        "jordisala1991/sermepa-omnipay": "dev-master"
     }
 }
 ```

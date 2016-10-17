@@ -2,10 +2,9 @@
 namespace Omnipay\Sermepa\Encryptor;
 
 /**
- * Created by PhpStorm.
- * User: javier
- * Date: 10/11/15
- * Time: 21:31
+ * BadSignatureException
+ *
+ * @author Javier Sampedro <jsampedro77@gmail.com>
  */
 class Encryptor
 {

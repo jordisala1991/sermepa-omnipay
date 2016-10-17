@@ -18,13 +18,18 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return array(
-            'titular' => '',
-            'consumerLanguage' => '001',
             'currency' => '978',
             'terminal' => '001',
-            'merchantURL' => '',
-            'merchantName' => '',
+            'consumerLanguage' => '001',
             'transactionType' => '0',
+            'payMethod' => 'C',
+            'titular' => '',
+            'merchantName' => '',
+            'merchantKey' => '',
+            'merchantCode' => '',
+            'merchantURL' => '',
+            'returnUrl' => '',
+            'cancelUrl' => '',
             'testMode' => false
         );
     }
@@ -32,7 +37,7 @@ class Gateway extends AbstractGateway
     public function setMerchantName($merchantName)
     {
         $this->setParameter('merchantName', $merchantName);
-        $this->setParameter('titular', $merchantName); //is this right??
+        $this->setParameter('titular', $merchantName);
     }
 
     public function setMerchantKey($merchantKey)
@@ -68,6 +73,16 @@ class Gateway extends AbstractGateway
     public function setCancelUrl($cancelUrl)
     {
         $this->setParameter('cancelUrl', $cancelUrl);
+    }
+
+    public function setTransactionType($transactionType)
+    {
+        $this->setParameter('transactionType', $transactionType);
+    }
+
+    public function setPayMethod($payMethod)
+    {
+        $this->setParameter('payMethod', $payMethod);
     }
 
     /**

@@ -105,7 +105,7 @@ class PurchaseRequest extends AbstractRequest
         $data['Ds_Merchant_MerchantURL'] = $this->getParameter('merchantURL');
         $data['Ds_Merchant_Terminal'] = $this->getParameter('terminal');
         $data['Ds_Merchant_TransactionType'] = $this->getTransactionType();
-        $data['Ds_Merchant_PayMethods'] = $this->getParameter('payMethods');
+        $data['Ds_Merchant_PayMethod'] = $this->getParameter('payMethod');
 
         $data['Ds_Merchant_UrlOK'] = $this->getReturnUrl();
         $data['Ds_Merchant_UrlKO'] = $this->getCancelUrl();

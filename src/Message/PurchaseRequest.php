@@ -17,9 +17,9 @@ class PurchaseRequest extends AbstractRequest
     protected $liveEndpoint = 'https://sis.redsys.es';
     protected $testEndpoint = 'https://sis-t.redsys.es:25443';
 
-    public function setOrder($order)
+    public function setMerchantName($merchantName)
     {
-        return $this->setParameter('order', $order);
+        $this->setParameter('merchantName', $merchantName);
     }
 
     public function setTitular($titular)
@@ -27,66 +27,39 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('titular', $titular);
     }
 
-    public function setConsumerLanguage($consumerLanguage)
-    {
-        return $this->setParameter('consumerLanguage', $consumerLanguage);
-    }
-
-    public function setMerchantCode($merchantCode)
-    {
-        return $this->setParameter('merchantCode', $merchantCode);
-    }
-
-    public function setMerchantName($merchantName)
-    {
-        return $this->setParameter('merchantName', $merchantName);
-    }
-
-    public function setMerchantURL($merchantURL)
-    {
-        return $this->setParameter('merchantURL', $merchantURL);
-    }
-
     public function setMerchantKey($merchantKey)
     {
         $this->setParameter('merchantKey', $merchantKey);
     }
 
+    public function setMerchantCode($merchantCode)
+    {
+        $this->setParameter('merchantCode', $merchantCode);
+    }
+
+    public function setMerchantURL($merchantURL)
+    {
+        $this->setParameter('merchantURL', $merchantURL);
+    }
+
     public function setTerminal($terminal)
     {
-        return $this->setParameter('terminal', $terminal);
+        $this->setParameter('terminal', $terminal);
     }
 
-    /**
-     * Sets the identifier on the purchase request.
-     *
-     * @param string $identifier Identifier to be set on the purchase request
-     *
-     * @return object
-     */
-    public function setIdentifier($identifier)
+    public function setConsumerLanguage($consumerLanguage)
     {
-        return $this->setParameter('identifier', $identifier);
+        $this->setParameter('consumerLanguage', $consumerLanguage);
     }
 
-    /**
-     * Gets the identifier parameter setup on the purchase request.
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
+    public function setPayMethod($payMethod)
     {
-        return $this->getParameter('identifier');
+        $this->setParameter('payMethod', $payMethod);
     }
 
-    public function getTransactionType()
+    public function setTransactionType($transactionType)
     {
-        return '0';
-    }
-
-    public function setSignatureMode($signatureMode)
-    {
-        $this->setParameter('signatureMode', $signatureMode);
+        $this->setParameter('transactionType', $transactionType);
     }
 
     public function getData()
@@ -104,7 +77,7 @@ class PurchaseRequest extends AbstractRequest
         $data['Ds_Merchant_MerchantName'] = $this->getParameter('merchantName');
         $data['Ds_Merchant_MerchantURL'] = $this->getParameter('merchantURL');
         $data['Ds_Merchant_Terminal'] = $this->getParameter('terminal');
-        $data['Ds_Merchant_TransactionType'] = $this->getTransactionType();
+        $data['Ds_Merchant_TransactionType'] = $this->getParamter('transactionType');
         $data['Ds_Merchant_PayMethod'] = $this->getParameter('payMethod');
 
         $data['Ds_Merchant_UrlOK'] = $this->getReturnUrl();
@@ -134,7 +107,7 @@ class PurchaseRequest extends AbstractRequest
         return $this->getEndpointBase().'/sis/realizarPago';
     }
 
-    public function getEndpointBase()
+    protected function getEndpointBase()
     {
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }

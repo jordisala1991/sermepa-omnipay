@@ -52,9 +52,9 @@ class PurchaseRequest extends AbstractRequest
         $this->setParameter('consumerLanguage', $consumerLanguage);
     }
 
-    public function setPayMethod($payMethod)
+    public function setPayMethods($payMethods)
     {
-        $this->setParameter('payMethod', $payMethod);
+        $this->setParameter('payMethods', $payMethods);
     }
 
     public function setTransactionType($transactionType)
@@ -78,7 +78,7 @@ class PurchaseRequest extends AbstractRequest
         $data['Ds_Merchant_MerchantURL'] = $this->getParameter('merchantURL');
         $data['Ds_Merchant_Terminal'] = $this->getParameter('terminal');
         $data['Ds_Merchant_TransactionType'] = $this->getParameter('transactionType');
-        $data['Ds_Merchant_PayMethod'] = $this->getParameter('payMethod');
+        $data['Ds_Merchant_PayMethods'] = $this->getParameter('payMethods');
 
         $data['Ds_Merchant_UrlOK'] = $this->getReturnUrl();
         $data['Ds_Merchant_UrlKO'] = $this->getCancelUrl();

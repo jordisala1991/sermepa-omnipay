@@ -22,7 +22,7 @@ class Gateway extends AbstractGateway
             'terminal' => '001',
             'consumerLanguage' => '001',
             'transactionType' => '0',
-            'payMethod' => 'C',
+            'payMethods' => 'C',
             'titular' => '',
             'merchantName' => '',
             'merchantKey' => '',
@@ -69,9 +69,9 @@ class Gateway extends AbstractGateway
         $this->setParameter('consumerLanguage', $consumerLanguage);
     }
 
-    public function setPayMethod($payMethod)
+    public function setPayMethods($payMethods)
     {
-        $this->setParameter('payMethod', $payMethod);
+        $this->setParameter('payMethods', $payMethods);
     }
 
     public function setReturnUrl($returnUrl)

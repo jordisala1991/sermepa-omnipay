@@ -62,6 +62,28 @@ class PurchaseRequest extends AbstractRequest
         $this->setParameter('transactionType', $transactionType);
     }
 
+    /**
+     * Sets the identifier on the purchase request.
+     *
+     * @param string $identifier Identifier to be set on the purchase request
+     *
+     * @return object
+     */
+    public function setIdentifier($identifier)
+    {
+        return $this->setParameter('identifier', $identifier);
+    }
+
+    /**
+     * Gets the identifier parameter setup on the purchase request.
+     *
+     * @return mixed
+     */
+    public function getIdentifier()
+    {
+        return $this->getParameter('identifier');
+    }
+
     public function getData()
     {
         $data = array();
